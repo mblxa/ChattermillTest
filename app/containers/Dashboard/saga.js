@@ -1,5 +1,4 @@
 import { call, put, select, takeEvery } from '@redux-saga/core/effects';
-import { get } from 'enzyme/src/configuration';
 import { API_ROOT } from '../../api-config';
 import request from '../../utils/request';
 import { makeSelectUserToken } from '../UserProvider/selectors';
@@ -13,6 +12,7 @@ import {
 } from './actions';
 import { REVIEW_ACTIONS, THEME_ACTIONS } from './constants';
 import { makeSelectThemeById } from './selectors';
+import {logout} from "../UserProvider/actions";
 
 function* listReviewsSaga(action) {
   const token = yield select(makeSelectUserToken());
@@ -30,6 +30,7 @@ function* listReviewsSaga(action) {
     yield put(listReviewsSuccess(data.data));
   } catch (e) {
     yield put(listReviewsFail(e.message));
+    if (e.code === 401) yield put(logout());
   }
 }
 
@@ -47,6 +48,7 @@ function* listThemesSaga(action) {
     yield put(listThemesSuccess(data.data));
   } catch (e) {
     yield put(listThemesFail(e.message));
+    if (e.code === 401) yield put(logout());
   }
 }
 
@@ -70,6 +72,7 @@ function* getThemeSaga(action) {
     yield put(getThemeSuccess(data.data));
   } catch (e) {
     yield put(getThemeFail(e.message));
+    if (e.code === 401) yield put(logout());
   }
 }
 

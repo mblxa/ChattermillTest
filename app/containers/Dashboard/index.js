@@ -19,6 +19,7 @@ import { listReviews } from './actions';
 import Container from '../../components/bootstrap/Container';
 import ThemeTag from './ThemeTag';
 import ThemeSelector from './ThemeSelector';
+import Authorization from "../../components/Authorization";
 
 const Dashboard = props => {
   useInjectReducer({ key: 'dashboard', reducer });
@@ -32,6 +33,7 @@ const Dashboard = props => {
   }, [offset, selected]);
 
   return (
+    <Authorization>
     <Container>
       <h1>Dashboard</h1>
       <ThemeSelector selected={selected} setSelected={setSelected} />
@@ -88,6 +90,7 @@ const Dashboard = props => {
         ))}
       </div>
     </Container>
+    </Authorization>
   );
 };
 

@@ -13,7 +13,7 @@ try {
 
 export const initialState = {
   token: tokenFromCookie,
-  isAuthorized: null,
+  isAuthorized: tokenFromCookie ? true : undefined,
   authFail: false,
   inProgress: false,
   errors: '',
@@ -23,10 +23,10 @@ const UserProviderReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case USER_ACTIONS.AUTH.SUCCESS:
+        draft.token = action.user.token;
         draft.inProgress = false;
         draft.authFail = false;
         draft.isAuthorized = true;
-        draft.token = action.token;
         break;
       case USER_ACTIONS.AUTH.FAIL:
         localStorage.clear();
@@ -37,13 +37,13 @@ const UserProviderReducer = (state = initialState, action) =>
       case USER_ACTIONS.AUTH.CALL:
         draft.inProgress = true;
         draft.authFail = false;
-        draft.isAuthorized = null;
+        draft.isAuthorized = undefined;
         break;
       case USER_ACTIONS.LOGOUT.CALL:
         localStorage.clear();
         draft.inProgress = false;
         draft.authFail = false;
-        draft.isAuthorized = false;
+        draft.isAuthorized = undefined;
         draft.token = undefined;
         break;
     }

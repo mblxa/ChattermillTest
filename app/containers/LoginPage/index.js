@@ -35,7 +35,7 @@ const LoginPage = props => {
   };
 
   if (props.isAuthorized) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/" />;
   }
   if (props.inProgress) {
     return <Loading />;
