@@ -14,7 +14,7 @@ export const listReviewsFail = error => ({
   error,
 });
 
-export const listThemes = offset => ({
+export const listThemes = (offset = 0) => ({
   type: THEME_ACTIONS.LIST.CALL,
   offset,
 });

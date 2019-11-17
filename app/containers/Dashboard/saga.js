@@ -7,14 +7,18 @@ import {
   getThemeFail,
   getThemeSuccess,
   listReviewsFail,
-  listReviewsSuccess, listThemesFail, listThemesSuccess,
+  listReviewsSuccess,
+  listThemesFail,
+  listThemesSuccess,
 } from './actions';
 import { REVIEW_ACTIONS, THEME_ACTIONS } from './constants';
 import { makeSelectThemeById } from './selectors';
 
 function* listReviewsSaga(action) {
   const token = yield select(makeSelectUserToken());
-  const requestURL = `${API_ROOT}/api/reviews?offset=${action.offset}`;
+  const requestURL = `${API_ROOT}/api/reviews?offset=${action.offset}${
+    action.theme_id ? `&theme_id=${action.theme_id}` : ''
+  }`;
   const options = {
     method: 'get',
     mode: 'cors',

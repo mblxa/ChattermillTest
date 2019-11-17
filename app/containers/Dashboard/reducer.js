@@ -37,6 +37,12 @@ const dashboardReducer = (state = initialState, action) =>
       case REVIEW_ACTIONS.LIST.FAIL:
         draft.reviewsProgress = false;
         break;
+      case THEME_ACTIONS.LIST.SUCCESS:
+        draft.themes = action.data;
+        action.data.forEach(theme => {
+          draft.theme[theme.id] = theme;
+        });
+        break;
       case THEME_ACTIONS.GET.CALL:
         if (!draft.theme[action.id]) {
           draft.theme[action.id] = themeBoilerplate;

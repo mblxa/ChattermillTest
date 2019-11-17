@@ -18,21 +18,24 @@ import saga from './saga';
 import { listReviews } from './actions';
 import Container from '../../components/bootstrap/Container';
 import ThemeTag from './ThemeTag';
+import ThemeSelector from './ThemeSelector';
 
 const Dashboard = props => {
   useInjectReducer({ key: 'dashboard', reducer });
   useInjectSaga({ key: 'dashboard', saga });
 
   const [offset, setOffset] = useState(0);
+  const [selected, setSelected] = useState(undefined);
 
   useEffect(() => {
-    props.dispatch(listReviews(offset));
-  }, [offset]);
+    props.dispatch(listReviews(offset, selected ? selected.id : undefined));
+  }, [offset, selected]);
 
   return (
     <Container>
       <h1>Dashboard</h1>
-      <div className="row justify-content-end">
+      <ThemeSelector selected={selected} setSelected={setSelected} />
+      <div className="row justify-content-end" style={{ marginBottom: '20px' }}>
         {offset > 0 && (
           <div className="col-2">
             <button
@@ -45,15 +48,15 @@ const Dashboard = props => {
           </div>
         )}
         <div className="col-2">
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => setOffset(offset + 20)}
-          >
-            Next
-          </button>
-          <br />
-          <br />
+          {props.reviews.length === 20 && (
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setOffset(offset + 20)}
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
       <div className="row">
