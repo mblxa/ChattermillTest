@@ -28,8 +28,18 @@ const ThemeSelector = props => {
           <div className="col-4">
             <h5>Select filter</h5>
           </div>
-          <div className="col-8">
+          <div className="col-6">
             Current: {props.selected ? props.selected.name : ''}
+            {" "}
+            {props.selected && (
+              <span
+                className="badge badge-primary"
+                onClick={() => props.setSelected(undefined)}
+                style={{cursor: 'pointer'}}
+              >
+                {'X'}
+              </span>
+            )}
           </div>
         </div>
         <div className="row">
@@ -48,7 +58,7 @@ const ThemeSelector = props => {
             {props.themes.map(theme => (
               <span
                 key={theme.id}
-                className="badge badge-primary"
+                className="badge badge-info"
                 style={{ marginRight: '10px', cursor: 'pointer' }}
                 onClick={() => {
                   props.setSelected(theme);
