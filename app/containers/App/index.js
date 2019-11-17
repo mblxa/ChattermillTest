@@ -15,12 +15,14 @@ import LoginPage from '../LoginPage';
 
 import GlobalStyle from '../../global-styles';
 import Dashboard from '../Dashboard';
+import Dashboard2 from '../Dashboard2';
 
 export default function App() {
   return (
     <div>
       <Switch>
         <Route exact path="/" component={Dashboard} />
+        <Route exact path="/dashboard2" component={Dashboard2} />
         <Route exact path="/signin" component={LoginPage} />
         <Route component={NotFoundPage} />
       </Switch>
