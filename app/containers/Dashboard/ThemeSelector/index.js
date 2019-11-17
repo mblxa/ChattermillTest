@@ -29,13 +29,12 @@ const ThemeSelector = props => {
             <h5>Select filter</h5>
           </div>
           <div className="col-6">
-            Current: {props.selected ? props.selected.name : ''}
-            {" "}
+            Current: {props.selected ? props.selected.name : ''}{' '}
             {props.selected && (
               <span
                 className="badge badge-primary"
                 onClick={() => props.setSelected(undefined)}
-                style={{cursor: 'pointer'}}
+                style={{ cursor: 'pointer' }}
               >
                 {'X'}
               </span>

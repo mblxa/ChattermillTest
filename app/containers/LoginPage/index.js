@@ -13,7 +13,7 @@ import AuthForm from './AuthForm';
 import Card from '../../components/bootstrap/Card';
 import Wrapper from './Wrapper';
 import Loading from '../../components/Loading';
-import { authorize, checkToken } from '../UserProvider/actions';
+import { authorize } from '../UserProvider/actions';
 import saga from '../UserProvider/saga';
 import reducer from '../UserProvider/reducers';
 import {

@@ -12,7 +12,7 @@ import {
 } from './actions';
 import { REVIEW_ACTIONS, THEME_ACTIONS } from './constants';
 import { makeSelectThemeById } from './selectors';
-import {logout} from "../UserProvider/actions";
+import { logout } from '../UserProvider/actions';
 
 function* listReviewsSaga(action) {
   const token = yield select(makeSelectUserToken());

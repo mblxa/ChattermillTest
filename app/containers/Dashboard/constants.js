@@ -1,4 +1,3 @@
-import { API_ROOT } from '../../api-config';
 import { actionCreator } from '../../utils/actionCreator';
 
 export const ReviewContainer = `ReviewProvider`;
