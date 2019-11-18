@@ -26,8 +26,8 @@ import { UserContainer } from '../UserProvider/constants';
 import Container from '../../components/bootstrap/Container';
 
 const LoginPage = props => {
-  const [username, setUsername] = useState('anton');
-  const [password, setPassword] = useState('PEv5XFf4e97CnhKw');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const submitForm = e => {
     e.preventDefault();
