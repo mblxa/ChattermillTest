@@ -52,6 +52,7 @@ function* listThemesSaga(action) {
   }
 }
 
+// eslint-disable-next-line consistent-return
 function* getThemeSaga(action) {
   const themeSelector = yield select(makeSelectThemeById());
 

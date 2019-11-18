@@ -17,7 +17,7 @@ import { getTheme } from '../actions';
 import reducer from '../reducer';
 import saga from '../saga';
 
-function ThemeTag(props) {
+export function ThemeTag(props) {
   useInjectReducer({ key: 'dashboard', reducer });
   useInjectSaga({ key: 'dashboard', saga });
 

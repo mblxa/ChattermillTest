@@ -23,6 +23,7 @@ module.exports = {
   },
   setupFilesAfterEnv: [
     '<rootDir>/internals/testing/test-bundler.js',
+    '<rootDir>/internals/testing/enzyme-setup.js',
     'react-testing-library/cleanup-after-each',
   ],
   setupFiles: ['raf/polyfill'],

@@ -1,13 +1,33 @@
-import { defaultAction } from '../actions';
-import { DEFAULT_ACTION } from '../constants';
+import { REVIEW_ACTIONS } from '../constants';
+import { listReviews } from '../actions';
 
 describe('Dashboard actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+  describe('listReviews', () => {
+    it('default', () => {
       const expected = {
-        type: DEFAULT_ACTION,
+        type: REVIEW_ACTIONS.LIST.CALL,
+        offset: 0,
+        theme_id: undefined,
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(listReviews()).toEqual(expected);
+    });
+
+    it('listReviews with offset', () => {
+      const expected = {
+        type: REVIEW_ACTIONS.LIST.CALL,
+        offset: 10,
+        theme_id: undefined,
+      };
+      expect(listReviews(10)).toEqual(expected);
+    });
+
+    it('listReviews with offset and theme_id', () => {
+      const expected = {
+        type: REVIEW_ACTIONS.LIST.CALL,
+        offset: 10,
+        theme_id: 1,
+      };
+      expect(listReviews(10, 1)).toEqual(expected);
     });
   });
 });

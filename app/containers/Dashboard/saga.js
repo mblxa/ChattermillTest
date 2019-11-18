@@ -14,7 +14,7 @@ import { REVIEW_ACTIONS, THEME_ACTIONS } from './constants';
 import { makeSelectThemeById } from './selectors';
 import { logout } from '../UserProvider/actions';
 
-function* listReviewsSaga(action) {
+export function* listReviewsSaga(action) {
   const token = yield select(makeSelectUserToken());
   const requestURL = `${API_ROOT}/api/reviews?offset=${action.offset}${
     action.theme_id ? `&theme_id=${action.theme_id}` : ''
@@ -52,6 +52,7 @@ function* listThemesSaga(action) {
   }
 }
 
+// eslint-disable-next-line consistent-return
 function* getThemeSaga(action) {
   const themeSelector = yield select(makeSelectThemeById());
 

@@ -12,7 +12,7 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import { makeSelectReviews, makeSelectReviewsProgress } from './selectors';
+import { makeSelectReviews } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import { listReviews } from './actions';
@@ -100,12 +100,10 @@ export const Dashboard = props => {
 Dashboard.propTypes = {
   dispatch: PropTypes.func.isRequired,
   reviews: PropTypes.array.isRequired,
-  reviewsProgress: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   reviews: makeSelectReviews(),
-  reviewsProgress: makeSelectReviewsProgress(),
 });
 
 function mapDispatchToProps(dispatch) {
