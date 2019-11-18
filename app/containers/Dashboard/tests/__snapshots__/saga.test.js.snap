@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dashboardSaga Saga listReviewsSaga should call the listReviewsFail action if the response errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+  "type": "SELECT",
+}
+`;
+
+exports[`dashboardSaga Saga listReviewsSaga should call the listReviewsFail action if the response errors 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "args": Array [
+      "http://chattermill-challenge.com/api/reviews?offset=0",
+      Object {
+        "headers": Object {
+          "Authorization": "Bearer 123",
+        },
+        "method": "get",
+        "mode": "cors",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+  "type": "CALL",
+}
+`;
+
+exports[`dashboardSaga Saga listReviewsSaga should dispatch the listReviewsSuccess action if it requests the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+  "type": "SELECT",
+}
+`;
+
+exports[`dashboardSaga Saga listReviewsSaga should dispatch the listReviewsSuccess action if it requests the data successfully 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "args": Array [
+      "http://chattermill-challenge.com/api/reviews?offset=0",
+      Object {
+        "headers": Object {
+          "Authorization": "Bearer 123",
+        },
+        "method": "get",
+        "mode": "cors",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+  "type": "CALL",
+}
+`;
