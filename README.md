@@ -17,3 +17,9 @@ Install NodeJS LTS
 npm i
 npm run start
 ```
+
+
+### Tests
+```shell script
+npm run test
+```
